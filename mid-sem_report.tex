@@ -22,16 +22,36 @@ Recurrent Neural Networks(RNNs), Long Short Term Memory Networks(LSTMs) and Gene
 Recurrent Neural Networks are neural networks in which neurons form a directed cycle. This creates an internal state that is able to exhibit temporal behavior, and can be used to process sequential data such as images, written information, or in this case, music.
 
 A neural network is made up of individual units called neurons.
+
+\subsection{Long Short Term Memory Networks}
+
+\subsection{Generative Adversarial Networks}
 \section{Model}
 \subsection{ABC notation}
 The initial recurrent neural network uses abc notation as input. ABC notation is a shorthand form of musical notation. In basic form it uses the letters A through G to represent the given notes, with other elements used to place added value on these - sharp, flat, the length of the note, key, ornamentation. Since ABC notation is in essence a textual data, a character level recurrent neural network, which takes as input individual characters at a time can be created.
 
 The dataset comprises of 1000 tunes scraped from The Nottingham Music database : http://ifdo.ca/~seymour/nottingham/nottingham.html. The abc notation of each tune was concatenated to get a single training data file.
 
-\subsection{Character Level Models}
+abc2midi program has been used to convert the generated abc notation to midi files. timidity program has been used to play these midi files.
+
+\subsection{Character Level Model}
+A recurrent neural network, whose input and output consists of only a single character is called a character level model. Following this representation, a recurrent neural network may be created for virtually any kind of textual data. Historically, similar models have been tried out for various kind of data sets, such as -
+\begin{itemize}
+\item Shakespeare's Plays
+\item Wikipedia Articles
+\item HTML documents
+\item LATEX documents
+\item C++ code
+\item Research Papers
+\item Music
+\end{itemize}
+
+These models were able to generate documents that \emph{looked} similar to the training documents, however sometimes the network wasn't able to capture subtleties like the grammar/format involved with a particular type of document.
+
+\subsection{Music Generation Model}
 
 
 \section{Results and Analysis}
 \section{Conclusion}
-
+\section{Bibliography}
 \end{document}
