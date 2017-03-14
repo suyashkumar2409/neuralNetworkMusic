@@ -18,12 +18,18 @@ def load_data(args):
     vocab = {}
     print ('%s/input.txt'% args.data_dir)
     words = codecs.open('%s/input.txt' % args.data_dir, 'rb', 'utf-8').read()
+    # print words
     words = list(words)
+
+    # ************** Makes character by charachter list
+    # print words
     dataset = np.ndarray((len(words),), dtype=np.int32)
     for i, word in enumerate(words):
         if word not in vocab:
             vocab[word] = len(vocab)
         dataset[i] = vocab[word]
+
+        # ************ Unique characters are added in vocab dict
     print 'corpus length:', len(words)
     print 'vocab size:', len(vocab)
     return dataset, words, vocab
@@ -33,16 +39,23 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--data_dir',                   type=str,   default='data/tinyshakespeare')
 parser.add_argument('--checkpoint_dir',             type=str,   default='cv')
 parser.add_argument('--gpu',                        type=int,   default=-1)
+
+# ************* Hyper parameters
 parser.add_argument('--rnn_size',                   type=int,   default=128)
 parser.add_argument('--learning_rate',              type=float, default=2e-3)
 parser.add_argument('--learning_rate_decay',        type=float, default=0.97)
 parser.add_argument('--learning_rate_decay_after',  type=int,   default=10)
 parser.add_argument('--decay_rate',                 type=float, default=0.95)
+
+
 parser.add_argument('--dropout',                    type=float, default=0.0)
 parser.add_argument('--seq_length',                 type=int,   default=50)
 parser.add_argument('--batchsize',                  type=int,   default=50)
+# ************ The number of times the whole dataset is traversed
 parser.add_argument('--epochs',                     type=int,   default=50)
 parser.add_argument('--grad_clip',                  type=int,   default=5)
+
+# ******** Choose a starter model
 parser.add_argument('--init_from',                  type=str,   default='')
 
 args = parser.parse_args()
@@ -64,6 +77,7 @@ if len(args.init_from) > 0:
 else:
     model = CharRNN(len(vocab), n_units)
 
+# ************** not sure how this gpu functionality works
 if args.gpu >= 0:
     cuda.get_device(args.gpu).use()
     model.to_gpu()
