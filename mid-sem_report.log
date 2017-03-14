@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2017.2.23)  14 MAR 2017 20:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2017.2.23)  14 MAR 2017 21:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,20 +6,19 @@ entering extended mode
 (./mid-sem_report.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 4 languages loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
-\c@chapter=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -45,16 +44,38 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 8.
- [1
 
-] [1] (./mid-sem_report.aux) ) 
+Overfull \hbox (41.5888pt too wide) in paragraph at lines 17--20
+[]\OT1/cmr/m/n/10.95 Recurrent Neu-ral Net-works(RNNs), Long Short Term Mem-ory
+ Net-works(LSTMs)
+ []
+
+
+Overfull \hbox (29.98772pt too wide) in paragraph at lines 17--20
+\OT1/cmr/m/n/10.95 and Gen-er-a-tive Ad-ver-sar-ial Net-works are some of the t
+ypes of net-works/approaches
+ []
+
+[1
+
+]
+! Undefined control sequence.
+l.30 \url
+         {http://ifdo.ca/~seymour/nottingham/nottingham.html}.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[2] (./mid-sem_report.aux) ) 
 Here is how much of TeX's memory you used:
- 246 strings out of 494958
- 2704 string characters out of 6180054
- 47713 words of memory out of 5000000
- 3565 multiletter control sequences out of 15000+600000
- 7887 words of font info for 28 fonts, out of 8000000 for 9000
+ 232 strings out of 494958
+ 2563 string characters out of 6180054
+ 50349 words of memory out of 5000000
+ 3549 multiletter control sequences out of 15000+600000
+ 8541 words of font info for 30 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 21i,6n,19p,136b,179s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 21i,6n,19p,661b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mid-sem_report.dvi (2 pages, 780 bytes).
+Output written on mid-sem_report.dvi (2 pages, 3944 bytes).

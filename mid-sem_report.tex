@@ -8,10 +8,29 @@
 \maketitle
 
 \section{Aim}
-The aim of the project is to create a machine learning model that is able to generate original music
+The aim of the project is to create a machine learning model that is able to generate {\em original} music after being trained on several music pieces.
 \section{Introduction}
-\section{History}
-\section{Approach}
+This project attempts to tackle this problem by using a class of neural networks called "Recurrent Neural Networks". This class of neural networks is distinguished from others due to the fact that they are {\bf able to model memory}. This is especially important while working on sequential data.
+
+Traditional neural networks consist of an input layer, a series of hidden layer and the output layer. The hidden layer takes as input only the outputs of the input layer. However, in recurrent neural networks, the hidden layer is a function of the input layer as well as the previous representation of the hidden layer, creating a feedback loop. This feedback loop is able to model memory, and is representative of all the inputs that have been seen so far. Such a network is then able to work for sequential data. Music is represented as sequential data, the data is represented as chords that are played in sequence at various timestamps.
+
+Recurrent Neural Networks(RNNs), Long Short Term Memory Networks(LSTMs) and Generative Adversarial Networks are some of the types of networks/approaches that have been tried out in this attempt.
+%\section{History}
+%Historically, there have been many approaches to tackling the task of computationally %generating music. 
+\section{Background}
+\subsection{Recurrent Neural Networks}
+Recurrent Neural Networks are neural networks in which neurons form a directed cycle. This creates an internal state that is able to exhibit temporal behavior, and can be used to process sequential data such as images, written information, or in this case, music.
+
+A neural network is made up of individual units called neurons.
+\section{Model}
+\subsection{ABC notation}
+The initial recurrent neural network uses abc notation as input. ABC notation is a shorthand form of musical notation. In basic form it uses the letters A through G to represent the given notes, with other elements used to place added value on these - sharp, flat, the length of the note, key, ornamentation. Since ABC notation is in essence a textual data, a character level recurrent neural network, which takes as input individual characters at a time can be created.
+
+The dataset comprises of 1000 tunes scraped from The Nottingham Music database : http://ifdo.ca/~seymour/nottingham/nottingham.html. The abc notation of each tune was concatenated to get a single training data file.
+
+\subsection{Character Level Models}
+
+
 \section{Results and Analysis}
 \section{Conclusion}
 
