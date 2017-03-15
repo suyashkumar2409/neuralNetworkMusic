@@ -1,4 +1,5 @@
 \documentclass[11pt]{article}
+\usepackage{graphicx}
 \begin{document}
 
 \title{Automated Music Generation}
@@ -21,9 +22,29 @@ Recurrent Neural Networks(RNNs), Long Short Term Memory Networks(LSTMs) and Gene
 \subsection{Recurrent Neural Networks}
 Recurrent Neural Networks are neural networks in which neurons form a directed cycle. This creates an internal state that is able to exhibit temporal behavior, and can be used to process sequential data such as images, written information, or in this case, music.
 
-A neural network is made up of individual units called neurons.
+RNNs have a memory associated with it which can capture information about the inputs witnessed so far. Theoretically, RNNs should be able to process arbitrarily long sequences, however in practice, they can only look back a few steps.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{rnn.jpg}
+  \caption{Representation of an RNN, and unfolding the network}
+  \label{fig:rnn}
+\end{figure}
+
+As can be seen in the figure, the hidden layers have an edge to itself, meaning the hidden layer takes inputs from the input layer and the hidden layer from the previous timestep. It is equivalent to the unrolled neural network as shown in the figure.
+
+In the figure, xt is the input at time step t. st is the hidden state at step t. st is calculated as follows:
+
+st = f(Uxt + Wst-1)
+
+where U, V, W are the corresponding weights as shown in the figure.
+
+The function f is an activation function like tanh. ot is the output at step t.
+
+The neural network uses the backpropagation through time algorithm for learning the weights U,V and W.
 
 \subsection{Long Short Term Memory Networks}
+
+RNNs generally have difficulties in learning long-range sequential data. This is often attributed to the \emph{Vanishing Gradient problem}, which arises because of the chosen activation function(tanh). The deriviatives of tanh function are in the range (-1,1), and 
 
 \subsection{Generative Adversarial Networks}
 \section{Model}
