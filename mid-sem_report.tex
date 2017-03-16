@@ -79,9 +79,64 @@ The first model that has been tried uses a simple recurrent neural network, with
 
 The network uses a single hidden layer with 128 neurons. The input layer and output layer both consist of 93 neurons each, corresponding to 93 different types of characters used in abc notation. The input layer contains one neuron for each different symbol, with a value of one if that particular character is used, otherwise 0. 
 
-The network has been trained for 50 epochs, and the inital learning rate is 2e-3. The learning rate decays after every 10 epochs, with a decay rate
+The network has been trained for 50 epochs, and the inital learning rate is 2e-3. The learning rate decays after every 10 epochs, with a decay rate of 0.95.
+
+The network, after the training phase can accept a seed string and use it to predict the next few characters.
 
 \section{Results and Analysis}
+The model uses cross entropy error as the function to minimise using backpropagation through time algorithm. The initial cross entropy error is 4.5, and after training the network on 1000 tunes, this cross entropy error comes down to 0.45.
+
+It was found that \emph{long} seed strings that comply with the grammar and notation style of the abc notation give better results.
+
+The recurrent neural network is able to generate musical pieces, however, it can be observed that the rhythm produced is repetitive, implying that the network is not able to learn over long sequences, and their is not much of a variety in the musical pieces generated.
+
+Also, while the network is able to generate abc notation that looks similar to a human in comparison to other notations, the network is not able to capture the grammar correctly, and the program that has to convert this notation to playable(midi) files highlight these grammatical mistakes.
+
+A sample of generated music in abc notation is shown below - 
+
+\begin{verbatim}
+
+X: 185
+T:Sanks's Hornpipe
+% Nottingham Music Database
+S:via PR
+M:4/4
+L:1/4
+K:B
+F/2G/2|"Am"A/2B/2c/2e/2 f/2e/2d/2e/2|fd g/2B/2c/2e/2|a/2^g/2f/2e/2 
+d/2e/2g/2e/2|d/2B/2 gc|\
+"Am"c/2ag/2 fe|
+"Dm"f/2e/2f/2g/2 f/2e/2d/2e/2|"G"f/2e/2d "Am"eg|"D"d/2e/2f/2g/2 "A7"ed/2c/2|\
+"G"B3:|
+
+\end{verbatim}
 \section{Conclusion}
+The primitive recurrent neural network model is able to generate music to a limited satisfaction. It is not able to capture the grammar of the notation correctly, and its generated pieces are repetitive and rather monotonous.
+
+This, however gives a benchmark to test more advanced models against, involving LSTMs or GANs.
+
 \section{Bibliography}
+\begin{enumerate}
+\item GRUV: Algorithmic Music Generation using
+Recurrent Neural Networks: 
+\begin{verbatim} https://cs224d.stanford.edu/reports/NayebiAran.pdf
+\end{verbatim}
+\item Learning the Long-Term Structure of the Blues, Douglas et al 
+\begin{verbatim} ftp://ftp.idsia.ch/pub/juergen/2002_icannMusic.pdf
+
+\end{verbatim}
+\item Daniel Johnson's Blog for music generation using RNN :
+\begin{verbatim} http://www.hexahedria.com/2015/08/03/composing-music
+-with-recurrent-neural-networks/
+
+\end{verbatim}
+\item Andrej Kerpathy - Unreasonable effectiveness of Recurrent Neural Networks 
+\begin{verbatim}http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+\end{verbatim}
+\item Generative Adversarial Networks 
+\begin{verbatim}https://arxiv.org/pdf/1602.05110v5.pdf
+
+\end{verbatim}
+\end{enumerate}
 \end{document}
