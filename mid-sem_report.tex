@@ -44,9 +44,14 @@ The neural network uses the backpropagation through time algorithm for learning 
 
 \subsection{Long Short Term Memory Networks}
 
-RNNs generally have difficulties in learning long-range sequential data. This is often attributed to the \emph{Vanishing Gradient problem}, which arises because of the chosen activation function(tanh). The deriviatives of tanh function are in the range (-1,1), and 
+RNNs generally have difficulties in learning long-range sequential data. This is often attributed to the \emph{Vanishing Gradient problem}, which arises because of the chosen activation function(tanh). The deriviatives of tanh function are in the range (-1,1), and because backpropagation computes gradients using chain rule, it involves multiplying these deriviatives. This has the effect of obtaining a deriviative that is so small that the network is not able to learn long range data.
+
+This problem can be solved by using an activation function like ReLU (rectifier) whose deriviatives are constants of either 0 or 1.
+
+Another solution is to use an LSTM, which are specially designed recurrent neural networks capable of learning long term data.
 
 \subsection{Generative Adversarial Networks}
+Generative adversarial networks are a branch of unsupervised machine learning, implemented by a system of two neural networks competing against each other. In context of music generation, one network acts as the “forger” network, a network that aims to generate new pieces of music, one is the “discriminator” network, a network that aims to discriminate between low rated music and high rated music. Both the networks work in tandem, fighting each other for accuracy and improving each other in the process, to the point where the “forger” network is so good that it becomes difficult for the “discriminator” network or even a normal human being to catch whether the musical piece has been conceived naturally or artificially.
 \section{Model}
 \subsection{ABC notation}
 The initial recurrent neural network uses abc notation as input. ABC notation is a shorthand form of musical notation. In basic form it uses the letters A through G to represent the given notes, with other elements used to place added value on these - sharp, flat, the length of the note, key, ornamentation. Since ABC notation is in essence a textual data, a character level recurrent neural network, which takes as input individual characters at a time can be created.
@@ -69,8 +74,12 @@ A recurrent neural network, whose input and output consists of only a single cha
 
 These models were able to generate documents that \emph{looked} similar to the training documents, however sometimes the network wasn't able to capture subtleties like the grammar/format involved with a particular type of document.
 
-\subsection{Music Generation Model}
+\subsection{Music Generation Model - Recurrent Neural Networks}
+The first model that has been tried uses a simple recurrent neural network, with backpropagation through time (BPTT) algorithm as the learning algorithm. The code has been implemented in python, using the chainer library for using parallel implementations of the algorithm.
 
+The network uses a single hidden layer with 128 neurons. The input layer and output layer both consist of 93 neurons each, corresponding to 93 different types of characters used in abc notation. The input layer contains one neuron for each different symbol, with a value of one if that particular character is used, otherwise 0. 
+
+The network has been trained for 50 epochs, and the inital learning rate is 2e-3. The learning rate decays after every 10 epochs, with a decay rate
 
 \section{Results and Analysis}
 \section{Conclusion}
