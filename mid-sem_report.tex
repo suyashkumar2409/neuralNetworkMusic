@@ -84,6 +84,14 @@ The network has been trained for 50 epochs, and the inital learning rate is 2e-3
 The network, after the training phase can accept a seed string and use it to predict the next few characters.
 
 \section{Results and Analysis}
+
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{graph.png}
+  \caption{Plot of the cross entropy error across iterations}
+  \label{fig:graph}
+\end{figure}
+
 The model uses cross entropy error as the function to minimise using backpropagation through time algorithm. The initial cross entropy error is 4.5, and after training the network on 1000 tunes, this cross entropy error comes down to 0.45.
 
 It was found that \emph{long} seed strings that comply with the grammar and notation style of the abc notation give better results.

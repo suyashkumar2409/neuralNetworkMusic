@@ -77,6 +77,9 @@ epoch        = 0
 start_at     = time.time()
 cur_at       = start_at
 state        = make_initial_state(n_units, batchsize=batchsize)
+
+errorlis = []
+target = open("errorlis","w")
 if args.gpu >= 0:
     accum_loss   = Variable(cuda.zeros(()))
     for key, value in state.items():
@@ -101,6 +104,9 @@ for i in xrange(jump * n_epochs):
     if (i + 1) % bprop_len == 0:  # Run truncated BPTT
         now = time.time()
         print '{}/{}, train_loss = {}, time = {:.2f}'.format((i+1)/bprop_len, jump, accum_loss.data / bprop_len, now-cur_at)
+        errorlis.append(accum_loss.data / bprop_len)
+        target.write(str(accum_loss.data / bprop_len))
+        target.write("\n")
         cur_at = now
 
         optimizer.zero_grads()
@@ -127,3 +133,6 @@ for i in xrange(jump * n_epochs):
             print 'decayed learning rate by a factor {} to {}'.format(args.learning_rate_decay, optimizer.lr)
 
     sys.stdout.flush()
+
+target.close()
+pickle.dump(errorlis, open('errorlisAsList.bin', 'wb'))
